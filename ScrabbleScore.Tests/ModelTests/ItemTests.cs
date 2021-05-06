@@ -1,88 +1,33 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ToDoList.Models;
+using ScrabbleScore.Models;
 
-namespace ToDoList.Tests
+namespace Scrabble.Tests
 {
   [TestClass]
-  public class ItemTests : IDisposable
+  public class WordTests
   {
-    public void Dispose()
+    [TestMethod]
+    public void GetLetterValue_AString_True()
     {
-      Item.ClearAll();
+      Word newWord = new Word();
+      Assert.AreEqual(typeof(Word), newWord.GetType());
     }
     [TestMethod]
-    public void Constructor_CreatesInstanceOf_Item()
-    {
-      Item i = new("test");
-      Assert.AreEqual(typeof(Item), i.GetType());
-    }
-
-    [TestMethod]
-    public void GetDescription_ReturnsDescription_String()
-    {
-      string description = "Walk the dog.";
-      Item i = new(description);
-      string result = i.Description;
-      Assert.AreEqual(description, result);
-    }
-
-    [TestMethod]
-    public void SetDescription_ChangesDescription_String()
-    {
-      //Arrange
-      string description = "Walk the dog.";
-      Item newItem = new Item(description);
-
-      //Act
-      string updatedDescription = "Do the dishes";
-      newItem.Description = updatedDescription;
-      string result = newItem.Description;
-
-      //Assert
-      Assert.AreEqual(updatedDescription, result);
-    }
-
-    [TestMethod]
-    public void GetAll_ReturnsEmptyList_ItemList()
-    {
-      // Arrange
-      List<Item> newList = new List<Item> { };
-
-      // Act
-      List<Item> result = Item.GetAll();
-
-      // foreach (Item thisItem in result)
-      // {
-      //   Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);
-      // }
-
-      // Assert
-      CollectionAssert.AreEqual(newList, result);
-    }
-
-    [TestMethod]
-    public void GetAll_ReturnsItems_ItemList()
-    {
-      //Arrange
-      string d1 = "Walk the dog";
-      string d2 = "Wash the dishes";
-      Item i1 = new(d1);
-      Item i2 = new(d2);
-      List<Item> l = new List<Item> { i1, i2 };
-
-      //Act
-      List<Item> result = Item.GetAll();
-
-      // foreach (Item thisItem in result)
-      // {
-      //   Console.WriteLine("Output from second GetAll test: " + thisItem.Description);
-      // }
-
-      //Assert
-      CollectionAssert.AreEqual(l, result);
-    }
-
+    public void
   }
+
 }
+
+
+
+// Add README
+//assign values for letters
+// an array for the values of the letters
+// a list to push the user input
+// loop through
+
+//it will take a user's input word and break it down into an array or list with each letter seperated. 
+// it will loop throught the list/array and push a value to an empty list that corrisponds with the letter
+// then it will add the values of all the list items together.

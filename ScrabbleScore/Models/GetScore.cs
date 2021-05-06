@@ -5,8 +5,6 @@ namespace ScrabbleScore.Models
 {
   public class ScrabbleRules
   {
-    // public static int A = 1;
-    // public static int
     public static Dictionary<List<char>, int> LetterScores = new()
     {
       { new List<char> { 'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T' }, 1 },
@@ -32,44 +30,25 @@ namespace ScrabbleScore.Models
       int totalScore = 0;
       for (int i = 0; i < value.Length; i++)
       {
+        bool foundMatch = false;
         char testLetter = Char.ToUpper(value[i]);
         foreach (KeyValuePair<List<char>, int> letterScoreSet in ScrabbleRules.LetterScores)
         {
+          if (foundMatch) break;
           List<char> letters = letterScoreSet.Key;
           int score = letterScoreSet.Value;
           foreach (char letter in letters)
           {
+            if (foundMatch) break;
             if (letter == testLetter)
             {
               totalScore += score;
-              break;
+              foundMatch = true;
             }
-            Console.WriteLine(letter);
           }
-          // do something with entry.Value or entry.Key
         }
-        // for (int j = 0; j < ScrabbleRules.LetterScores.Count; j++)
-        // {
-        //    = ScrabbleRules.LetterScores[j]
-        //   totalScore += ;
-        // }
       }
-
-      return 0;
+      return totalScore;
     }
   }
 }
-
-// new Word()
-// Word { myString: "foo" }
-
-// Word myWord = new Word()
-// -> Word {  }
-// myWord.myString = "whatever"
-// 
-
-// letter
-// scrabbleDictionary[letter] -> int
-// scrabbleDictionary["A"] -> 1
-
-

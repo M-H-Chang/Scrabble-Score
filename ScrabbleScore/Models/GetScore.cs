@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace ScrabbleScore.Models
@@ -6,7 +7,7 @@ namespace ScrabbleScore.Models
   {
     // public static int A = 1;
     // public static int
-    readonly static Dictionary<List<char>, int> LetterScores = new()
+    public static Dictionary<List<char>, int> LetterScores = new()
     {
       { new List<char> { 'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T' }, 1 },
       { new List<char> { 'D', 'G' }, 2 },
@@ -28,11 +29,32 @@ namespace ScrabbleScore.Models
 
     public int GetScore()
     {
-      for (int index = 0; index < value.Length; index++)
+      int totalScore = 0;
+      for (int i = 0; i < value.Length; i++)
       {
-        char letter = value[index];
-
+        char testLetter = Char.ToUpper(value[i]);
+        foreach (KeyValuePair<List<char>, int> letterScoreSet in ScrabbleRules.LetterScores)
+        {
+          List<char> letters = letterScoreSet.Key;
+          int score = letterScoreSet.Value;
+          foreach (char letter in letters)
+          {
+            if (letter == testLetter)
+            {
+              totalScore += score;
+              break;
+            }
+            Console.WriteLine(letter);
+          }
+          // do something with entry.Value or entry.Key
+        }
+        // for (int j = 0; j < ScrabbleRules.LetterScores.Count; j++)
+        // {
+        //    = ScrabbleRules.LetterScores[j]
+        //   totalScore += ;
+        // }
       }
+
       return 0;
     }
   }

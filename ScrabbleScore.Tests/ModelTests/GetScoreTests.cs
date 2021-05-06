@@ -9,13 +9,18 @@ namespace Scrabble.Tests
   public class WordTests
   {
     [TestMethod]
-    public void GetLetterValue_AString_True()
+    public void WordConstructor_CreatesInstanceOf_Word()
     {
-      Word newWord = new Word();
-      Assert.AreEqual(typeof(Word), newWord.GetType());
+      Word myWord = new("foo");
+      Assert.AreEqual(typeof(Word), myWord.GetType());
     }
     [TestMethod]
-    public void
+    public void GetScore_ReturnsScoreForWord_Value()
+    {
+      Word myWord = new("hi");
+      Assert.AreEqual(5, myWord.GetScore());
+    }
+
   }
 
 }

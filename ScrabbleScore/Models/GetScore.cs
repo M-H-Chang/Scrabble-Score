@@ -19,28 +19,32 @@ namespace ScrabbleScore.Models
   }
   public class Word
   {
-    // string[] valueOne = { "A", "E", "I", "O", "U", "L", "N", "R", "S", "T" };
-    // string[] valueTwo = { "D", "G" };
-    // string[] valueThree = { "B", "C", "M", "P" };
-    // string[] valueFour = { "F", "H", "V", "W", "Y" };
-    // string[] valueFive = { "K" };
-    // string[] valueEight = { "J", "X" };
-    // string[] valueTen = { "Q", "Z" };
+    public string value { get; }
 
-    public static int GetLetterValue(string input)
+    public Word(string input)
     {
-      string userInput = input;
-      for (int index = 0; index < userInput.Length; index++)
+      value = input;
+    }
+
+    public int GetScore()
+    {
+      for (int index = 0; index < value.Length; index++)
       {
-        string letter = userInput.Substring(index, 1);
-        if (letter == "A")
-        {
-          return 1;
-        }
+        char letter = value[index];
+
       }
+      return 0;
     }
   }
 }
+
+// new Word()
+// Word { myString: "foo" }
+
+// Word myWord = new Word()
+// -> Word {  }
+// myWord.myString = "whatever"
+// 
 
 // letter
 // scrabbleDictionary[letter] -> int
